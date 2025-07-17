@@ -15,22 +15,33 @@
 <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
 
 <style>
+  /* Reset e básico */
   body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     background: #fff;
     color: #111;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  a {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  a:hover {
+    text-decoration: underline;
   }
 
   header {
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #eee;
-    background: #fff;
     position: sticky;
     top: 0;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     z-index: 1000;
   }
 
@@ -38,39 +49,47 @@
     height: 80px;
   }
 
-  header a {
-    color: #000;
-    text-decoration: none;
-    font-weight: 500;
-    border: 1px solid #000;
-    padding: 10px 20px;
-    border-radius: 30px;
-    transition: 0.3s;
+  nav {
+    display: flex;
+    gap: 25px;
   }
 
-  header a:hover {
-    background: #000;
+  nav a {
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+
+  nav a:hover {
+    background-color: #000;
     color: #fff;
+  }
+
+  main {
+    max-width: 960px;
+    margin: 60px auto 80px;
+    padding: 0 20px;
   }
 
   .hero {
     text-align: center;
-    padding: 100px 20px 60px 20px;
-    background: #f9f9f9;
+    padding-bottom: 60px;
   }
 
   .hero h1 {
-    font-size: 3em;
+    font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 20px;
   }
 
   .hero p {
-    font-size: 1.2em;
-    font-weight: 300;
+    font-size: 1.3rem;
+    font-weight: 400;
     max-width: 700px;
-    margin: 0 auto 40px auto;
-    line-height: 1.5;
+    margin: 0 auto 30px;
+    color: #222;
   }
 
   #btnAgendar {
@@ -79,48 +98,96 @@
   }
 
   section {
-    padding: 60px 20px;
-    max-width: 900px;
-    margin: auto;
+    margin-bottom: 60px;
   }
 
   section h2 {
-    font-size: 2em;
+    font-size: 2.4rem;
     margin-bottom: 20px;
-    font-weight: 500;
+    font-weight: 600;
     color: #000;
+    border-bottom: 2px solid #000;
+    padding-bottom: 8px;
   }
 
   section p {
-    font-size: 1em;
-    line-height: 1.6;
-    color: #555;
+    font-size: 1.15rem;
+    color: #444;
   }
 
   iframe {
     width: 100%;
     border: 0;
-    margin-top: 40px;
+    margin-top: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   }
 
   footer {
     text-align: center;
-    padding: 20px;
-    font-size: 0.9em;
-    color: #999;
+    padding: 20px 10px;
+    font-size: 0.95rem;
+    color: #777;
     border-top: 1px solid #eee;
-    margin-top: 60px;
   }
 
-  @media (max-width: 600px) {
-    .hero h1 {
-      font-size: 2em;
+  /* FAQ styles */
+  .faq-item {
+    margin-bottom: 20px;
+  }
+
+  .faq-question {
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    padding-right: 20px;
+  }
+
+  .faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    font-weight: 700;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-question.active::after {
+    content: '–';
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    padding-left: 10px;
+    color: #555;
+  }
+
+  .faq-answer.open {
+    max-height: 500px;
+    margin-top: 8px;
+  }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    header {
+      flex-direction: column;
+      gap: 15px;
+      padding: 15px 20px;
     }
 
-    header img {
-      height: 60px;
+    nav {
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+    }
+
+    main {
+      margin: 40px auto 60px;
     }
   }
 </style>
@@ -128,45 +195,84 @@
 <body>
 
 <header>
-  <img
-    src="https://lh3.googleusercontent.com/d/15kQzpacLw-EK3z_RBkjKokuWUih31gGP"
-    alt="Logo Carona na Retenção"
-  />
-  <a href="#agenda">Agendar</a>
+  <img src="https://lh3.googleusercontent.com/d/15kQzpacLw-EK3z_RBkjKokuWUih31gGP" alt="Logo Carona na Retenção" />
+  <nav>
+    <a href="#agenda">Agendar</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfW-BY93Nry9Ks2Zd8O49Qnw7bPm3wzThgOH5E0zfZ1Y5tNGQ/viewform?usp=dialog" target="_blank" rel="noopener">Feedback</a>
+    <a href="#como-funciona">Como Funciona</a>
+    <a href="#faq">FAQ</a>
+  </nav>
 </header>
 
-<div class="hero">
-  <h1>Carona na Retenção</h1>
-  <p>
-    Vivencie a experiência real de quem atende nossos clientes. Participe do programa
-    e passe 2 horas ao lado de um agente da Retenção, aprendendo e colaborando com
-    insights.
-  </p>
-  <!-- Aqui o botão será gerado -->
-  <div id="btnAgendar"></div>
-</div>
+<main>
+  <section class="hero" id="top">
+    <h1>Carona na Retenção</h1>
+    <p>
+      Venha vivenciar a experiência real de quem atende nossos clientes.  
+      Participe do programa e passe 2 horas ao lado de um agente da Retenção, aprendendo e colaborando com insights para melhorar nosso atendimento.
+    </p>
 
-<section>
-  <h2>Como funciona?</h2>
-  <p>
-    Ao participar da Carona na Retenção, você acompanha em tempo real a rotina de um agente da equipe.
-    Ouve as ligações, entende o processo e pode interagir com o cliente com orientação do agente.<br /><br />
-    Depois da experiência, você preenche um formulário simples com seus insights e sugestões.
-  </p>
+    <div id="btnAgendar"></div>
+  </section>
 
-  <h2 id="agenda" style="margin-top: 50px;">Agenda</h2>
+  <section id="como-funciona">
+    <h2>Como Funciona?</h2>
+    <p>
+      <strong>1.</strong> Você agenda sua carona na retenção pelo nosso sistema de agendamento.<br />
+      <strong>2.</strong> Durante 2 horas, acompanha um agente da Retenção em atendimentos reais, podendo ouvir e participar com suporte do agente.<br />
+      <strong>3.</strong> Após a experiência, preenche um formulário rápido de feedback com suas impressões e sugestões.<br />
+      <strong>4.</strong> Seus insights serão usados para melhorar nossos processos e a experiência do cliente!
+    </p>
+  </section>
 
-  <!-- Embed do Google Calendar -->
-  <iframe
-    src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3qS81ltRaQAti-TUveMW3CEVjvEXZyaVepq1yPn-ZCoBS_XpEf1lmiZQnUMAPRAlDl_hXtwHMq?gv=true"
-    height="600"
-  ></iframe>
-</section>
+  <section id="agenda">
+    <h2>Agenda</h2>
+    <iframe
+      src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3qS81ltRaQAti-TUveMW3CEVjvEXZyaVepq1yPn-ZCoBS_XpEf1lmiZQnUMAPRAlDl_hXtwHMq?gv=true"
+      height="600"
+    ></iframe>
+  </section>
 
-<footer>© 2025 Carona na Retenção - Todos os direitos reservados.</footer>
+  <section id="faq">
+    <h2>FAQ - Perguntas Frequentes</h2>
 
-<!-- Script do Google Calendar para criar o botão no local do script -->
+    <div class="faq-item">
+      <div class="faq-question">Quem pode participar do programa?</div>
+      <div class="faq-answer">
+        Qualquer colaborador da empresa que tenha interesse em entender melhor o atendimento ao cliente.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Preciso ter experiência prévia para participar?</div>
+      <div class="faq-answer">
+        Não! O programa é para todos os níveis, basta ter vontade de aprender e colaborar.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Como e onde preencho o formulário de feedback?</div>
+      <div class="faq-answer">
+        Após sua carona, enviaremos o link do formulário de feedback por e-mail ou você pode acessá-lo diretamente pelo menu.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Posso interagir com o cliente durante a carona?</div>
+      <div class="faq-answer">
+        Sim, mas sempre com a orientação e supervisão do agente da Retenção.
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  © 2025 Carona na Retenção - Todos os direitos reservados.
+</footer>
+
 <script>
+  // Google Calendar Scheduling Button Loader
   (function () {
     var target = document.getElementById('btnAgendar');
     window.addEventListener('load', function () {
@@ -179,6 +285,20 @@
       });
     });
   })();
+
+  // FAQ toggle
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  faqQuestions.forEach((q) => {
+    q.addEventListener('click', () => {
+      q.classList.toggle('active');
+      const answer = q.nextElementSibling;
+      if (answer.classList.contains('open')) {
+        answer.classList.remove('open');
+      } else {
+        answer.classList.add('open');
+      }
+    });
+  });
 </script>
 
 </body>
