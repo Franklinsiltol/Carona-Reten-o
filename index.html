@@ -1,180 +1,172 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Carona na Retenção</title>
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/15kQzpacLw-EK3z_RBkjKokuWUih31gGP" />
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
 
-<!-- Google Calendar Appointment Scheduling button -->
-<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+<!-- Google Calendar Appointment Scheduling -->
+<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet" />
 <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
 
 <style>
-    body {
-        margin: 0;
-        font-family: 'Inter', sans-serif;
-        background: #fff;
-        color: #111;
-    }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #fff;
+    color: #111;
+  }
 
-    header {
-        padding: 20px 40px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid #eee;
-        background: #fff;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
+  header {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  header img {
+    height: 80px; /* Logo maior */
+  }
+
+  header a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+    border: 1px solid #000;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: 0.3s;
+  }
+
+  header a:hover {
+    background: #000;
+    color: #fff;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 100px 20px 60px 20px;
+    background: #f9f9f9;
+  }
+
+  .hero h1 {
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .hero p {
+    font-size: 1.2em;
+    font-weight: 300;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    line-height: 1.5;
+  }
+
+  calendar-scheduling-button {
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  section {
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: #000;
+  }
+
+  section p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #555;
+  }
+
+  iframe {
+    width: 100%;
+    border: 0;
+    margin-top: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #999;
+    border-top: 1px solid #eee;
+    margin-top: 60px;
+  }
+
+  @media (max-width: 600px) {
+    .hero h1 {
+      font-size: 2em;
     }
 
     header img {
-        height: 50px;
+      height: 60px;
     }
-
-    header a {
-        color: #000;
-        text-decoration: none;
-        font-weight: 500;
-        border: 1px solid #000;
-        padding: 10px 20px;
-        border-radius: 30px;
-        transition: 0.3s;
-    }
-
-    header a:hover {
-        background: #000;
-        color: #fff;
-    }
-
-    .hero {
-        text-align: center;
-        padding: 100px 20px 60px 20px;
-        background: #f9f9f9;
-    }
-
-    .hero h1 {
-        font-size: 3em;
-        font-weight: 700;
-        margin-bottom: 20px;
-    }
-
-    .hero p {
-        font-size: 1.2em;
-        font-weight: 300;
-        max-width: 700px;
-        margin: 0 auto 40px auto;
-        line-height: 1.5;
-    }
-
-    .button-agendar {
-        background: #000;
-        color: #fff;
-        border: none;
-        padding: 15px 30px;
-        font-size: 1em;
-        border-radius: 50px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .button-agendar:hover {
-        background: #333;
-    }
-
-    section {
-        padding: 60px 20px;
-        max-width: 900px;
-        margin: auto;
-    }
-
-    section h2 {
-        font-size: 2em;
-        margin-bottom: 20px;
-        font-weight: 500;
-        color: #000;
-    }
-
-    section p {
-        font-size: 1em;
-        line-height: 1.6;
-        color: #555;
-    }
-
-    iframe {
-        width: 100%;
-        border: 0;
-        margin-top: 40px;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-
-    footer {
-        text-align: center;
-        padding: 20px;
-        font-size: 0.9em;
-        color: #999;
-        border-top: 1px solid #eee;
-        margin-top: 60px;
-    }
-
-    @media(max-width: 600px) {
-        .hero h1 {
-            font-size: 2em;
-        }
-    }
+  }
 </style>
 </head>
 <body>
 
 <header>
-    <img src="https://lh3.googleusercontent.com/d/15kQzpacLw-EK3z_RBkjKokuWUih31gGP" alt="Logo Carona na Retenção">
-    <a href="#agenda">Agendar</a>
+  <img
+    src="https://lh3.googleusercontent.com/d/15kQzpacLw-EK3z_RBkjKokuWUih31gGP"
+    alt="Logo Carona na Retenção"
+  />
+  <a href="#agenda">Agendar</a>
 </header>
 
 <div class="hero">
-    <h1>Carona na Retenção</h1>
-    <p>Vivencie a experiência real de quem atende nossos clientes. Participe do programa e passe 2 horas ao lado de um agente da Retenção, aprendendo e colaborando com insights.</p>
-    <button class="button-agendar" id="openAgenda">Agendar agora</button>
+  <h1>Carona na Retenção</h1>
+  <p>
+    Vivencie a experiência real de quem atende nossos clientes. Participe do programa
+    e passe 2 horas ao lado de um agente da Retenção, aprendendo e colaborando com
+    insights.
+  </p>
+  <calendar-scheduling-button
+    url="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3qS81ltRaQAti-TUveMW3CEVjvEXZyaVepq1yPn-ZCoBS_XpEf1lmiZQnUMAPRAlDl_hXtwHMq?gv=true"
+    color="#000000"
+    label="Agendar agora"
+  ></calendar-scheduling-button>
 </div>
 
 <section>
-    <h2>Como funciona?</h2>
-    <p>
-        Ao participar da Carona na Retenção, você acompanha em tempo real a rotina de um agente da equipe. Ouve as ligações, entende o processo e pode interagir com o cliente com orientação do agente.<br><br>
-        Depois da experiência, você preenche um formulário simples com seus insights e sugestões.
-    </p>
+  <h2>Como funciona?</h2>
+  <p>
+    Ao participar da Carona na Retenção, você acompanha em tempo real a rotina de um agente da equipe.
+    Ouve as ligações, entende o processo e pode interagir com o cliente com orientação do agente.<br /><br />
+    Depois da experiência, você preenche um formulário simples com seus insights e sugestões.
+  </p>
 
-    <h2 id="agenda" style="margin-top:50px;">Agenda</h2>
-    
-    <!-- Embed do Google Calendar -->
-    <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3qS81ltRaQAti-TUveMW3CEVjvEXZyaVepq1yPn-ZCoBS_XpEf1lmiZQnUMAPRAlDl_hXtwHMq?gv=true" height="600"></iframe>
+  <h2 id="agenda" style="margin-top: 50px;">Agenda</h2>
+
+  <!-- Embed do Google Calendar -->
+  <iframe
+    src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3qS81ltRaQAti-TUveMW3CEVjvEXZyaVepq1yPn-ZCoBS_XpEf1lmiZQnUMAPRAlDl_hXtwHMq?gv=true"
+    height="600"
+  ></iframe>
 </section>
 
-<footer>
-    © 2025 Carona na Retenção - Todos os direitos reservados.
-</footer>
-
-<!-- Script do botão do Google Calendar -->
-<script>
-(function() {
-  var targetButton = document.getElementById('openAgenda');
-  targetButton.addEventListener('click', function() {
-    calendar.schedulingButton.load({
-      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3qS81ltRaQAti-TUveMW3CEVjvEXZyaVepq1yPn-ZCoBS_XpEf1lmiZQnUMAPRAlDl_hXtwHMq?gv=true',
-      color: '#000000',
-      label: 'Agendar um compromisso',
-      target: targetButton
-    });
-  });
-})();
-</script>
+<footer>© 2025 Carona na Retenção - Todos os direitos reservados.</footer>
 
 </body>
 </html>
