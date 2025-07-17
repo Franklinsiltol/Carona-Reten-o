@@ -35,7 +35,7 @@
   }
 
   header img {
-    height: 80px; /* Logo maior */
+    height: 80px;
   }
 
   header a {
@@ -76,6 +76,8 @@
   calendar-scheduling-button {
     display: inline-block;
     margin-top: 10px;
+    font-size: 16px;
+    min-width: 180px;
   }
 
   section {
@@ -146,7 +148,12 @@
     url="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3qS81ltRaQAti-TUveMW3CEVjvEXZyaVepq1yPn-ZCoBS_XpEf1lmiZQnUMAPRAlDl_hXtwHMq?gv=true"
     color="#000000"
     label="Agendar agora"
-  ></calendar-scheduling-button>
+  >
+    <!-- Fallback caso o componente não carregue -->
+    <button style="padding: 15px 30px; border-radius: 50px; background:#000; color:#fff; border:none; cursor:pointer;">
+      Agendar agora
+    </button>
+  </calendar-scheduling-button>
 </div>
 
 <section>
