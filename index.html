@@ -73,11 +73,9 @@
     line-height: 1.5;
   }
 
-  calendar-scheduling-button {
+  #btnAgendar {
     display: inline-block;
-    margin-top: 10px;
-    font-size: 16px;
-    min-width: 180px;
+    margin-top: 20px;
   }
 
   section {
@@ -144,16 +142,8 @@
     e passe 2 horas ao lado de um agente da Retenção, aprendendo e colaborando com
     insights.
   </p>
-  <calendar-scheduling-button
-    url="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3qS81ltRaQAti-TUveMW3CEVjvEXZyaVepq1yPn-ZCoBS_XpEf1lmiZQnUMAPRAlDl_hXtwHMq?gv=true"
-    color="#000000"
-    label="Agendar agora"
-  >
-    <!-- Fallback caso o componente não carregue -->
-    <button style="padding: 15px 30px; border-radius: 50px; background:#000; color:#fff; border:none; cursor:pointer;">
-      Agendar agora
-    </button>
-  </calendar-scheduling-button>
+  <!-- Aqui o botão será gerado -->
+  <div id="btnAgendar"></div>
 </div>
 
 <section>
@@ -174,6 +164,22 @@
 </section>
 
 <footer>© 2025 Carona na Retenção - Todos os direitos reservados.</footer>
+
+<!-- Script do Google Calendar para criar o botão no local do script -->
+<script>
+  (function () {
+    var target = document.getElementById('btnAgendar');
+    window.addEventListener('load', function () {
+      calendar.schedulingButton.load({
+        url:
+          'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3qS81ltRaQAti-TUveMW3CEVjvEXZyaVepq1yPn-ZCoBS_XpEf1lmiZQnUMAPRAlDl_hXtwHMq?gv=true',
+        color: '#000000',
+        label: 'Agendar um compromisso',
+        target: target,
+      });
+    });
+  })();
+</script>
 
 </body>
 </html>
