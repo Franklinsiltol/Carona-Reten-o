@@ -15,7 +15,6 @@
 <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
 
 <style>
-  /* Reset e básico */
   body {
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -43,6 +42,10 @@
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
+  }
+
+  header a.logo-link {
+    display: inline-block;
   }
 
   header img {
@@ -131,7 +134,6 @@
     border-top: 1px solid #eee;
   }
 
-  /* FAQ styles */
   .faq-item {
     margin-bottom: 20px;
   }
@@ -168,7 +170,6 @@
     margin-top: 8px;
   }
 
-  /* Responsive */
   @media (max-width: 700px) {
     header {
       flex-direction: column;
@@ -195,12 +196,22 @@
 <body>
 
 <header>
-  <img src="https://lh3.googleusercontent.com/d/15kQzpacLw-EK3z_RBkjKokuWUih31gGP" alt="Logo Carona na Retenção" />
+  <a href="#top" class="logo-link">
+    <img
+      src="https://lh3.googleusercontent.com/d/15kQzpacLw-EK3z_RBkjKokuWUih31gGP"
+      alt="Logo Carona na Retenção"
+    />
+  </a>
   <nav>
     <a href="#agenda">Agendar</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfW-BY93Nry9Ks2Zd8O49Qnw7bPm3wzThgOH5E0zfZ1Y5tNGQ/viewform?usp=dialog" target="_blank" rel="noopener">Feedback</a>
     <a href="#como-funciona">Como Funciona</a>
     <a href="#faq">FAQ</a>
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSfW-BY93Nry9Ks2Zd8O49Qnw7bPm3wzThgOH5E0zfZ1Y5tNGQ/viewform?usp=dialog"
+      target="_blank"
+      rel="noopener"
+      >Feedback</a
+    >
   </nav>
 </header>
 
@@ -263,7 +274,6 @@
         Sim, mas sempre com a orientação e supervisão do agente da Retenção.
       </div>
     </div>
-
   </section>
 </main>
 
@@ -272,7 +282,6 @@
 </footer>
 
 <script>
-  // Google Calendar Scheduling Button Loader
   (function () {
     var target = document.getElementById('btnAgendar');
     window.addEventListener('load', function () {
@@ -286,7 +295,6 @@
     });
   })();
 
-  // FAQ toggle
   const faqQuestions = document.querySelectorAll('.faq-question');
   faqQuestions.forEach((q) => {
     q.addEventListener('click', () => {
